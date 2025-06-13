@@ -53,15 +53,40 @@
 					},
 					{
 						"indexed": false,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "DeletedContact",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
 						"internalType": "string",
-						"name": "oldValue",
+						"name": "oldName",
 						"type": "string"
 					},
 					{
 						"indexed": false,
 						"internalType": "string",
-						"name": "newValue",
+						"name": "newName",
 						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum MyContacts.Relation",
+						"name": "newRelation",
+						"type": "uint8"
 					},
 					{
 						"indexed": false,
@@ -72,25 +97,6 @@
 				],
 				"name": "UpdateContact",
 				"type": "event"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "enum MyContacts.Relation",
-						"name": "",
-						"type": "uint8"
-					}
-				],
-				"name": "RelationToString",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			},
 			{
 				"inputs": [
@@ -130,7 +136,13 @@
 					}
 				],
 				"name": "deletContact",
-				"outputs": [],
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "ok",
+						"type": "bool"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -184,14 +196,70 @@
 					}
 				],
 				"name": "viewContact",
-				"outputs": [],
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "wallet",
+								"type": "address"
+							},
+							{
+								"internalType": "enum MyContacts.Relation",
+								"name": "relation",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "counterUpdates",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct MyContacts.Contact",
+						"name": "",
+						"type": "tuple"
+					}
+				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [],
 				"name": "viewMyContacts",
-				"outputs": [],
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "wallet",
+								"type": "address"
+							},
+							{
+								"internalType": "enum MyContacts.Relation",
+								"name": "relation",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "counterUpdates",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct MyContacts.Contact[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
 				"stateMutability": "view",
 				"type": "function"
 			}
@@ -224,11 +292,11 @@
 	},
 	"sources": {
 		"Contracts/ContactsManager.sol": {
-			"keccak256": "0x29c7ccf57e85de1458db86900bff528af457ecf1f43193bb105a55f38acc5393",
+			"keccak256": "0xb10fb7cb5808fe3dd8f3341f0d4bf83db7e6b3782005fe80c3445c807c1d0b31",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3b4122208f055e7d24a6818888f43244cf74e60504cf48d01398b8ecb96e77ce",
-				"dweb:/ipfs/QmUUovaTBeKuvh2y1anXuPmYAVcZsSWV9k9UXvYQipCMf2"
+				"bzz-raw://c1f20cc37e0d80195dfbb005435f9815f2761e1b6452328e87d7fd8a6aedbfee",
+				"dweb:/ipfs/QmVdaERa42yeFeHvYzqhrSgyATVGpNEwoEYeTjA4dPttuV"
 			]
 		}
 	},
